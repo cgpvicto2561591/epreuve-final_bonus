@@ -193,6 +193,7 @@ function both3(){
    
 }
 function both4(){
+    box8.value = 0;
      box8.classList.remove('box8Valid');
      if(boolverif4)
     {
@@ -214,6 +215,7 @@ function both4(){
   
 }
 function both5(){
+    box8.value = 0;
      box8.classList.remove('box8Valid');
      if(boolverif5)
     {
@@ -235,6 +237,7 @@ function both5(){
     
 }
 function both6(){
+    box8.value = 0;
      box8.classList.remove('box8Valid');
      if(boolverif6)
     {
