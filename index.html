@@ -55,7 +55,7 @@
         <p>
             Payez moins pour obtenir moins d'articles, ou payez plus pour donner plus aux éditeurs, à Humble et aux associations caritatives.
         </p>
-        <div class="gridBoxer">
+        <form action="https://design-web.onrender.com/submit" target="post" class="gridBoxer">
             <div class="box1"> 1,35 $CA
             </div>
              <div class="box2">13,54 $CA
@@ -70,13 +70,13 @@
             </div>
              <div class="box7">$CA
             </div>
-                <input type="number" class="box8" id="moneyblingbling" name="Numbercash"  placeholder="   Autre montant"min="0" />
-            <div class="box9"> Validation
-               
+            <input type="number" class="box8" id="moneyblingbling" name="Numbercash"   placeholder="   Autre montant"min="0" required/>
+            <button class="box9" type="submit"> Validation
+             </button>  
                 
-            </div>
+            </form>
             
-        </div>
+        
        <img id="coolImage" src="./img/coolImage.png" alt="coolImage">
     </div>
     </aside>
@@ -190,3 +190,5 @@
     
 </body>
 </html>
+<!--  il reste a changer le menu quand la taille est différente
+  faire en sorte que le mécaniste de prix function avec le label! surment autre choses que je pense pas -->

@@ -12,6 +12,7 @@ const box3 = document.querySelector('.box3');
 const box4 = document.querySelector('.box4');
 const box5 = document.querySelector('.box5');
 const box6 = document.querySelector('.box6');
+const box8 = document.querySelector('.box8');
 const Allbook = document.querySelectorAll('.book');
 const book1 = Allbook[0];
 const book2 = Allbook[1];
@@ -30,13 +31,14 @@ const book14 = Allbook[13];
 
 
 
-
+// let ValuePrice = document.getElementById('moneyblingbling').value;
 let boolverif1 = true;
 let boolverif2 = true;
 let boolverif3 = true;
 let boolverif4 = true;
 let boolverif5 = true;
 let boolverif6 = true;
+let boolverif8 = true;
 // const clickbox1 = e.target.closest('.box1');
 // const clickbox2 = e.target.closest('.box2');
 // const clickbox3 = e.target.closest('.box3');
@@ -135,13 +137,16 @@ box6.classList.remove('selectedbox');
 // =  function  box       =
 // ========================
 function both1(){
-    
+     box8.classList.remove('box8Valid');
+     box8.value = 0;
     if(boolverif1)
     {
          boxSelected1();
     lotSelected3();  //selement 5book
     functionbook5();
-    Switchbool()
+    box8.value = 1.35;
+    box8.classList.add('box8Valid');
+    Switchbool();
     boolverif1 = false;
     }
     else
@@ -154,11 +159,15 @@ function both1(){
    
 }
 function both2(){
+     box8.value = 0;
+     box8.classList.remove('box8Valid');
     if(boolverif2)
     {
          boxSelected2(); //10 book
         lotSelected2();
         functionbook10();
+        box8.value = 13.54;
+        box8.classList.add('box8Valid');
         Switchbool()
         boolverif2 = false;
     }
@@ -172,11 +181,15 @@ function both2(){
    
 }
 function both3(){
+     box8.value = 0;
+     box8.classList.remove('box8Valid');
      if(boolverif3)
     {
          boxSelected3();  // 14 book maxed
         lotSelected1();
         functionbook14();
+        box8.value = 24.37;
+        box8.classList.add('box8Valid');
         Switchbool()
         boolverif3 = false;
     }
@@ -190,10 +203,13 @@ function both3(){
    
 }
 function both4(){
+     box8.classList.remove('box8Valid');
      if(boolverif4)
     {
           lotSelected1();  // 14 book maxed
         boxSelected4();
+        box8.value = 30;
+        box8.classList.add('box8Valid');
         functionbook14();
         Switchbool()
         boolverif4 = false;
@@ -208,10 +224,13 @@ function both4(){
   
 }
 function both5(){
+     box8.classList.remove('box8Valid');
      if(boolverif5)
     {
         lotSelected1();  // 14 book maxed
         boxSelected5();
+        box8.value = 35;
+        box8.classList.add('box8Valid');
         functionbook14();
         Switchbool()
         boolverif5 = false;
@@ -226,10 +245,13 @@ function both5(){
     
 }
 function both6(){
+     box8.classList.remove('box8Valid');
      if(boolverif6)
     {
          lotSelected1();  // 14 book maxed
         boxSelected6();
+        box8.value = 40;
+        box8.classList.add('box8Valid');
         functionbook14();
         Switchbool()
         boolverif6 = false;
@@ -241,7 +263,24 @@ function both6(){
                 boxUnselect();
                 boolverif6 = true;
     }
-   
+}
+
+function both8(){
+    if(boolverif8)
+    {
+         lotSelected1();  
+        // boxSelected6();
+        functionbook14();
+        Switchbool()
+      
+    }
+    else
+    {
+         functionbookunselect();
+                lotUnselect();
+                boxUnselect();
+              
+    }
 }
 // ========================
 // =  function book       =
@@ -316,36 +355,51 @@ book14.classList.add('hidden');
 // ========================
 // =  function autre      =
 // ========================
-// function unselect(e){
-//     const clicklot = e.target.closest('.lot');
-//     if(clicklot)
-//     {
-//         if(clicklot.classList.contains('hidden'))
-//         {
-//             const index = allLots.indexOf(clickedLot);
-//             if(index === 0)
-//             {//14 book
-//                 functionbookunselect()
-//                 lotUnselect()
-//                 boxUnselect()
-//             }
-//             else if(index === 1)
-//             {//10book
-//                 functionbookunselect()
-//                 lotUnselect()
-//                 boxUnselect()
-//             }
-//             else if(index === 2)
-//             {//5book
-//                 functionbookunselect()
-//                 lotUnselect()
-//                 boxUnselect()
-//             }
-//         }
-//     }
-    
+function CheckPrice(){
+
+    ValuePrice = document.getElementById('moneyblingbling').value;
+    console.log(ValuePrice);
+    if(ValuePrice >= 1.35 && ValuePrice < 13.54)
+    {//5 book
+        box8.classList.add('box8Valid');
+         boxUnselect();
+        lotSelected3();
+        functionbook5();
+        boolverif8 = true;
+    }
+    else if(ValuePrice >= 13.54 && ValuePrice <24.37 )
+    {//10book
+        box8.classList.add('box8Valid');
+         boxUnselect();
+        lotSelected2();
+        functionbook10();
+        boolverif8 = true;
+    }
+    else if(ValuePrice >= 24.37)
+    {//14book
+         boxUnselect();
+        both8();
+        box8.classList.add('box8Valid');
+         boolverif8 = true;
+    }
+    else
+    {// le prix est inferieur a 1.35
+        box8.classList.remove('box8Valid');
+        lotUnselect();
+        boxUnselect();
+        functionbookunselect();
+        boolverif8 = false;
+    }
+}
+//quand je unselect mon box8 est-ce que la valeur repect checkPrice pour mes lots si non la value sera 0;
+function validiter(){
+    if(box8.value < 1.35)
+    {
+        box8.value = 0;
+    }
+}  
    
-// }
+
 function Switchbool(){
  boolverif1 = true;
  boolverif2 = true;
@@ -353,6 +407,7 @@ function Switchbool(){
  boolverif4 = true;
  boolverif5 = true;
  boolverif6 = true;
+ boolverif8 = true;
 }
 
 // ====================================================
@@ -378,10 +433,10 @@ box5.addEventListener("click", both5);
 
 box6.addEventListener("click", both6);
 
-//dernier element clicker
-
-
+//value checker
+box8.addEventListener("keyup", CheckPrice)
+box8.addEventListener("blur", validiter)
 // ====================================================
-// =  Start up                                        =
+// =                                                  =
 // ====================================================
 
