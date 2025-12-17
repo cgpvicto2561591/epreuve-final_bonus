@@ -29,9 +29,6 @@ const book12 = Allbook[11];
 const book13 = Allbook[12];
 const book14 = Allbook[13];
 
-
-
-// let ValuePrice = document.getElementById('moneyblingbling').value;
 let boolverif1 = true;
 let boolverif2 = true;
 let boolverif3 = true;
@@ -39,13 +36,6 @@ let boolverif4 = true;
 let boolverif5 = true;
 let boolverif6 = true;
 let boolverif8 = true;
-// const clickbox1 = e.target.closest('.box1');
-// const clickbox2 = e.target.closest('.box2');
-// const clickbox3 = e.target.closest('.box3');
-// const clickbox4 = e.target.closest('.box4');
-// const clickbox5 = e.target.closest('.box5');
-// const clickbox6 = e.target.closest('.box6');
-
 // ====================================================
 // =  function                                        =
 // ====================================================
@@ -134,7 +124,7 @@ box5.classList.remove('selectedbox');
 box6.classList.remove('selectedbox');
 }
 // ========================
-// =  function  box       =
+// =function click box/lot=
 // ========================
 function both1(){
      box8.classList.remove('box8Valid');
@@ -391,7 +381,8 @@ function CheckPrice(){
         boolverif8 = false;
     }
 }
-//quand je unselect mon box8 est-ce que la valeur repect checkPrice pour mes lots si non la value sera 0;
+//quand je unselect mon box8 est-ce que la valeur repect checkPrice
+//  pour mes lots si non la value sera 0;
 function validiter(){
     if(box8.value < 1.35)
     {
@@ -399,7 +390,7 @@ function validiter(){
     }
 }  
    
-
+//retourne tout les bools a true pour éviter des problems pour que 1seul bool sois false apres.
 function Switchbool(){
  boolverif1 = true;
  boolverif2 = true;
